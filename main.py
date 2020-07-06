@@ -57,6 +57,7 @@ def scan_file():
     print(md5_hash)
 
 def get_file():
+    step()
     url_for_report = 'https://www.virustotal.com/vtapi/v2/file/report'
     params = {'apikey': '3eff5d05b40c79dc3cd3fb5c05e9bc1bc0bdc0b0dfc0b9c9846ca7daed1f4bd6', 'resource': 'md5_hash'}
     params['resource'] = md5_hash
@@ -68,27 +69,30 @@ def get_file():
 def file_scan_window():
     global file_scan_window
     file_scan_window = Toplevel()
-    file_scan_window.geometry("700x400")
+    file_scan_window.geometry("820x400")
 
     #Init Widgets
-    title_2 = Label(file_scan_window, text="TITLE")
-    upload_file_button = Button(file_scan_window, text="Upload File", padx=80, pady=80, fg="white", bg="black", command=open_file)
-    send_file_button = Button(file_scan_window, text="Send", padx=80, pady=80, fg="white", bg="black", command=scan_file)
-    get_file_result_button = Button(file_scan_window, text="Get Result", padx=80, pady=80, fg="white", bg="black", command=get_file)
+    title_2 = Label(file_scan_window, text="File Scanner",font=("Helvetica", 16))
+    upload_file_button = Button(file_scan_window, text="Upload", padx=80, pady=50, fg="white", bg="black", command=open_file)
+    send_file_button = Button(file_scan_window, text="Scan", padx=80, pady=50, fg="white", bg="black", command=scan_file)
+    get_file_result_button = Button(file_scan_window, text="Result", padx=80, pady=50, fg="white", bg="black", command=get_file)
     global bar
-    bar = ttk.Progressbar(file_scan_window, orient = HORIZONTAL, length = 100, mode='determinate')
+    bar = ttk.Progressbar(file_scan_window, orient = HORIZONTAL, length = 400, mode='determinate')
     exit_button_2 = Button(file_scan_window, text="EXIT", padx=80, pady=20, fg="white", bg="black", command=exit)
-    test_button = Button(file_scan_window, text="test", padx=80, pady=80, fg="white", bg="black", command=step)
+    space = Label(file_scan_window, text="                         ")
+    space2 = Label(file_scan_window, text="                         ")
+    space3 = Label(file_scan_window, text="                         ")
 
     #Display Widgets
-    title_2.grid(row=0, column=0)
-    upload_file_button.grid(row=1,column=1)
-    send_file_button.grid(row=1,column=2)
-    get_file_result_button.grid(row=1,column=3)
-    bar.grid(row=3,column=1)
-    exit_button_2.grid(row=7,column=1)
-    test_button.grid(row=8,column=2)
-
+    title_2.grid(row=0, column=2)
+    space.grid(row=1,column=2)
+    bar.grid(row=2,column=2)
+    space2.grid(row=3,column=2)
+    upload_file_button.grid(row=4,column=1)
+    send_file_button.grid(row=4,column=2)
+    get_file_result_button.grid(row=4,column=3)
+    space3.grid(row=5,column=2)
+    exit_button_2.grid(row=7,column=2)
 
 def url_scan_window():
     global url_scan_window
