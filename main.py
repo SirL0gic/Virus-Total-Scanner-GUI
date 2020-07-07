@@ -17,13 +17,7 @@ import requests #pip install requests
 ########################################################
                     #ALL FUNCTIONS START#
 ########################################################
-def test():
-    test_label = Label(root, text="Test Complete")
-    test_label.grid()
-    print("Test Complete")
 
-def exit():
-    quit()
 
 def scan_url():
     url = 'https://www.virustotal.com/vtapi/v2/url/scan'
@@ -144,6 +138,9 @@ def step2():
         bar['value'] += 10
         url_scan_window.update_idletasks()
         time.sleep(1)
+
+def exit():
+    quit()
 
 
 ########################################################
